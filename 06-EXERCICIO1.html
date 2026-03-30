@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+  
+    // 1) Componente com props personalizadas
+    const Pessoa = ({ nome, sobrenome, dia, mes, ano }) => {
+
+      // 6) Cálculo da idade em 2026
+      const idade = 2026 - ano
+
+      return (
+        <>
+          {/* 3 e 4) Primeiro parágrafo - nome completo */}
+          <p className="cor1">
+            Nome completo: {nome} {sobrenome}
+          </p>
+
+          {/* 3 e 5) Segundo parágrafo - data de nascimento */}
+          <p className="cor2">
+            Data de nascimento: {dia}/{mes}/{ano}
+          </p>
+
+          {/* 6) Div com idade */}
+          <div className="idade">
+            Idade em 2026: {idade} anos
+          </div>
+        </>
+      )
+    }
+
+    // Renderização
+    const container =
+      <Pessoa 
+        nome="Andresa"
+        sobrenome="de Paula"
+        dia="06"
+        mes="07"
+        ano={1981}
+      />
+
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(container)
+
+  </script>
+
+</body>
+</html>
